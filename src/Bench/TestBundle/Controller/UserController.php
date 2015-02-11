@@ -34,6 +34,49 @@ class UserController extends Controller
             'entities' => $entities,
         );
     }
+    
+        /**
+     * Lists all User entities.
+     *
+     * @Route("/money", name="usermoney")
+     * @Method("GET")
+     * @Template()
+     */
+    public function moneyAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('BenchTestBundle:User')->findAll();
+
+        return array(
+            'entities' => $entities,
+        );
+    }
+    
+    
+    /**
+     * Finds and displays a User entity.
+     *
+     * @Route("/money2", name="usermoney2")
+     * @Method("GET")
+     * @Template("BenchTestBundle:User:money.html.twig")
+     */
+    public function money2Action()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $repo = $em->getRepository("BenchTestBundle:User");
+        $qb = $repo->createQueryBuilder('u')
+                ->select('u')
+                ->leftJoin('u.money', 'm')
+                ->addSelect('m');       
+                
+        $entities = $qb->getQuery()->getResult();
+        
+        return array(
+            'entities'      => $entities,
+        );
+    }
 
     /**
      * Finds and displays a User entity.

@@ -212,4 +212,22 @@ class User
     {
         $this->money->removeElement($money);
     }
+    
+    
+    public function countTransactions() {
+        return $this->money->count();
+    }
+    
+    public function getTotal()
+    {
+        $sum = 0;
+        foreach($this->money as $m)
+        {
+            $sum += $m->getAmount();
+        }
+        
+        return $sum;
+    }
+    
+    
 }
