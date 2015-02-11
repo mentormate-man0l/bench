@@ -1,0 +1,5 @@
+bench_test:
+    resource: "@BenchTestBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
