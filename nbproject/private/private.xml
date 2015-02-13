@@ -5,9 +5,8 @@
         <group>
             <file>file:/D:/vagrant_shared_projects/bench/src/Bench/TestBundle/Entity/Money.php</file>
             <file>file:/D:/vagrant_shared_projects/bench/src/Bench/TestBundle/Entity/User.php</file>
-            <file>file:/D:/vagrant_shared_projects/bench/src/Bench/TestBundle/DataFixtures/ORM/LoadUserData.php</file>
-            <file>file:/D:/vagrant_shared_projects/bench/src/Bench/TestBundle/Controller/DefaultController.php</file>
-            <file>file:/D:/vagrant_shared_projects/bench/src/Bench/TestBundle/Resources/views/Default/index.html.twig</file>
+            <file>file:/D:/vagrant_shared_projects/bench/src/Bench/TestBundle/Controller/UserController.php</file>
+            <file>file:/D:/vagrant_shared_projects/bench/src/Bench/TestBundle/Controller/MoneyController.php</file>
         </group>
     </open-files>
 </project-private>

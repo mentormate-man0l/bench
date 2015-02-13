@@ -1,8 +1,4 @@
-<IfModule mod_rewrite.c>
-
-RewriteEngine On
-
-#skip "real" requests
+# skip "real" requests
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule .* - [QSA,L]
 
@@ -61,4 +57,3 @@ RewriteCond %{ENV:_ROUTING__allow_GET} =1 [OR]
 RewriteCond %{ENV:_ROUTING__allow_HEAD} =1
 RewriteRule .* app.php [QSA,L]
 
-</IfModule>

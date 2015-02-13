@@ -5,16 +5,17 @@ imports:
 #    validation:
 #        cache: apc
 
-#doctrine:
-#    orm:
-#        metadata_cache_driver: apc
-#        result_cache_driver: apc
-#        query_cache_driver: apc
+doctrine:
+    orm:
+        metadata_cache_driver: apc
+        result_cache_driver: apc
+        query_cache_driver: apc
 
 monolog:
     handlers:
         main:
-            type:         fingers_crossed
+            #type:         fingers_crossed
+            type: "null"
             action_level: error
             handler:      nested
         nested:
@@ -23,3 +24,7 @@ monolog:
             level: debug
         console:
             type:  console
+
+parameters:
+    router.options.matcher.cache_class: ~ # disable router cache
+    router.options.matcher_class: Symfony\Component\Routing\Matcher\ApacheUrlMatcher

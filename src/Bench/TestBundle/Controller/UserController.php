@@ -27,8 +27,14 @@ class UserController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
+        $repo = $em->getRepository("BenchTestBundle:User");
 
-        $entities = $em->getRepository('BenchTestBundle:User')->findAll();
+        //$entities = $em->getRepository('BenchTestBundle:User')->findAll();
+         $q = $repo->createQueryBuilder('u')
+                ->select('u')->getQuery();
+         
+         $q->useResultCache(true, 3600, 'bench_app');
+         $entities = $q->getResult();
 
         return array(
             'entities' => $entities,
